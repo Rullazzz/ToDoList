@@ -1,0 +1,18 @@
+﻿<Window x:Class="ToDoListUI.AddWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:ToDoListUI"
+		mc:Ignorable="d"
+		Title="AddWindow" Height="213" Width="390">
+	<Grid>
+		<Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+			<TextBlock>
+				Введите задачу
+			</TextBlock>
+			<TextBox Width="200" Height="auto" HorizontalAlignment="Right"/>
+		</Grid>
+		<Button Content="ОК" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Margin="10"/>
+	</Grid>
+</Window>
