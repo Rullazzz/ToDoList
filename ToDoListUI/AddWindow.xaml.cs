@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ToDoListBL;
 
 namespace ToDoListUI
 {
@@ -19,9 +20,18 @@ namespace ToDoListUI
 	/// </summary>
 	public partial class AddWindow : Window
 	{
+		public Purpose Purpose { get; set; }
 		public AddWindow()
 		{
 			InitializeComponent();
+		}
+
+		private void AddButtom_Click(object sender, RoutedEventArgs e)
+		{
+			var taskToComplete = PurposeTextBox.Text;
+			var dateCreation = DateTime.Now;
+			Purpose = new Purpose(taskToComplete, dateCreation);
+			Close();
 		}
 	}
 }

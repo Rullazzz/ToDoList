@@ -101,5 +101,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ToDoListBL\ToDoListBL.csproj">
+      <Project>{49e8ee4a-e27a-4a6f-b9e5-f83c9493448c}</Project>
+      <Name>ToDoListBL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

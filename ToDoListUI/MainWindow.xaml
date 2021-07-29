@@ -6,7 +6,7 @@
 		xmlns:local="clr-namespace:ToDoListUI"
 		mc:Ignorable="d"
 		Title="MainWindow" Height="350" Width="600">
-
+	
 	<Window.Resources>
 		<Style TargetType="Button">
 			<Setter Property="HorizontalAlignment" Value="Center" />
@@ -27,7 +27,7 @@
 
 		<Grid Background="#FFBDBCBC">
 			<StackPanel VerticalAlignment="Center">
-				<Button Content="Добавить" />
+				<Button x:Name="AddPurposeButtom" Content="Добавить" Click="AddPurposeButtom_Click" />
 				<Button Content="Удалить" />
 			</StackPanel>
 		</Grid>
@@ -35,7 +35,7 @@
 		<Grid Grid.Column="1">
 			<StackPanel>
 				<TextBlock Text="Задачи" />
-				<ListBox x:Name="ToDoList" />
+				<ListBox x:Name="ToDoList" Height="auto" Background="AntiqueWhite" />
 			</StackPanel>
 		</Grid>
 	</Grid>
