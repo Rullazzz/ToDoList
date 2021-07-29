@@ -28,7 +28,7 @@
 		<Grid Background="#FFBDBCBC">
 			<StackPanel VerticalAlignment="Center">
 				<Button x:Name="AddPurposeButtom" Content="Добавить" Click="AddPurposeButtom_Click" />
-				<Button Content="Удалить" />
+				<Button x:Name="DeletePurposeButton" Content="Удалить" Click="DeletePurposeButton_Click" />
 			</StackPanel>
 		</Grid>
 

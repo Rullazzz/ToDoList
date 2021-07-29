@@ -22,7 +22,15 @@ namespace ToDoListUI
 		{
 			var addWindow = new AddWindow();
 			addWindow.ShowDialog();
-			_purposes.Add(addWindow.Purpose);			
+
+			if (addWindow.Purpose.TaskToComplete != "")
+				_purposes.Add(addWindow.Purpose);
+		}
+
+		private void DeletePurposeButton_Click(object sender, RoutedEventArgs e)
+		{
+			var selectedPurpose = (Purpose)ToDoList.SelectedItem;
+			_purposes.Remove(selectedPurpose);
 		}
 	}
 }
