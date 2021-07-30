@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
 using ToDoListBL;
+using ToDoListBL.Model;
 
 namespace ToDoListUI
 {
@@ -10,11 +11,13 @@ namespace ToDoListUI
 	public partial class MainWindow : Window
 	{
 		private ObservableCollection<Purpose> _purposes;
+		private IDataSaver _dataSaver;
 
 		public MainWindow()
 		{
 			InitializeComponent();
-			_purposes = new ObservableCollection<Purpose>();
+			_dataSaver = new SerializeDataSaver();
+			_purposes = _dataSaver.Load<Purpose>() ?? new ObservableCollection<Purpose>();
 			ToDoList.ItemsSource = _purposes;
 		}
 
@@ -31,6 +34,11 @@ namespace ToDoListUI
 		{
 			var selectedPurpose = (Purpose)ToDoList.SelectedItem;
 			_purposes.Remove(selectedPurpose);
+		}
+
+		private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+		{			
+			_dataSaver.Save(_purposes);
 		}
 	}
 }
