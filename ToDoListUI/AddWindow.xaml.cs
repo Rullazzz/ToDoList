@@ -26,6 +26,12 @@ namespace ToDoListUI
 			InitializeComponent();
 		}
 
+		public AddWindow(Purpose purpose) : this()
+		{
+			TaskToCompleteTextBox.Text = purpose.TaskToComplete;
+			DeadlineDatePicker.SelectedDate = purpose.Deadline;
+		}
+
 		private void AddButtom_Click(object sender, RoutedEventArgs e)
 		{
 			var taskToComplete = TaskToCompleteTextBox.Text;

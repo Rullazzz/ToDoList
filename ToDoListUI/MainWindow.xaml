@@ -5,7 +5,7 @@
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:ToDoListUI"
 		mc:Ignorable="d"
-		Title="MainWindow" Height="350" Width="700" Closing="Window_Closing">
+		Title="Список дел" Height="350" Width="700" Closing="Window_Closing">
 
 	<Grid>
 		<Grid.ColumnDefinitions>
@@ -17,6 +17,7 @@
 			<StackPanel VerticalAlignment="Center">
 				<Button x:Name="AddPurposeButtom" Style="{StaticResource ButtonStyleDefault}" Content="Добавить" Click="AddPurposeButtom_Click" />
 				<Button x:Name="DeletePurposeButton" Style="{StaticResource ButtonStyleDefault}" Content="Удалить" Click="DeletePurposeButton_Click" />
+				<Button x:Name="ChangePurposeButton" Style="{StaticResource ButtonStyleDefault}" Content="Изменить" Click="ChangePurposeButton_Click" />
 			</StackPanel>
 		</Grid>
 

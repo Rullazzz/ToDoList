@@ -19,6 +19,7 @@ namespace ToDoListUI
 			_dataSaver = new SerializeDataSaver();
 			_purposes = _dataSaver.Load<Purpose>() ?? new ObservableCollection<Purpose>();
 			ToDoList.ItemsSource = _purposes;
+			
 		}
 
 		private void AddPurposeButtom_Click(object sender, RoutedEventArgs e)
@@ -39,6 +40,20 @@ namespace ToDoListUI
 		private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
 		{			
 			_dataSaver.Save(_purposes);
+		}
+
+		private void ChangePurposeButton_Click(object sender, RoutedEventArgs e)
+		{
+			var selectedPurpose = (Purpose)ToDoList.SelectedItem;
+			var addWindow = new AddWindow(selectedPurpose);
+			addWindow.ShowDialog();
+
+			if (addWindow.Purpose != null && addWindow.Purpose.TaskToComplete != "")
+			{
+				var indexSelectedPurpose = _purposes.IndexOf(selectedPurpose);
+				_purposes[indexSelectedPurpose].TaskToComplete = addWindow.Purpose.TaskToComplete;
+				_purposes[indexSelectedPurpose].Deadline = addWindow.Purpose.Deadline;
+			}
 		}
 	}
 }
