@@ -7,11 +7,13 @@ namespace ToDoListBL
 	{
 		public string TaskToComplete { get; set; }
 		public DateTime DateCreation { get; set; }
+		public DateTime Deadline { get; set; }
 
-		public Purpose(string taskToComplete, DateTime dateCreation)
+		public Purpose(string taskToComplete, DateTime deadline)
 		{
 			TaskToComplete = taskToComplete ?? throw new ArgumentNullException(nameof(taskToComplete));
-			DateCreation = dateCreation;
+			DateCreation = DateTime.Now;
+			Deadline = deadline;
 		}
 
 		public override string ToString()

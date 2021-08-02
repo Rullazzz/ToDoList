@@ -28,9 +28,10 @@ namespace ToDoListUI
 
 		private void AddButtom_Click(object sender, RoutedEventArgs e)
 		{
-			var taskToComplete = PurposeTextBox.Text;
-			var dateCreation = DateTime.Now;
-			Purpose = new Purpose(taskToComplete, dateCreation);
+			var taskToComplete = TaskToCompleteTextBox.Text;
+			// TODO: Придумать другое решение при DeadlineDatePicker == null.
+			var deadline = DeadlineDatePicker.SelectedDate ?? DateTime.Now;
+			Purpose = new Purpose(taskToComplete, deadline);
 			Close();
 		}
 	}

@@ -7,12 +7,21 @@
 		mc:Ignorable="d"
 		Title="AddWindow" Height="213" Width="390">
 	<Grid>
-		<Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
-			<TextBlock>
-				Введите задачу
-			</TextBlock>
-			<TextBox x:Name="PurposeTextBox" Width="200" Height="auto" HorizontalAlignment="Right"/>
-		</Grid>
+		<StackPanel VerticalAlignment="Center" >
+			<Grid Width="300" Margin="0,0,0,5">
+				<TextBlock>
+					Введите задачу
+				</TextBlock>
+				<TextBox x:Name="TaskToCompleteTextBox" Width="200" Height="auto" HorizontalAlignment="Right"/>
+			</Grid>
+			<Grid Width="300">
+				<TextBlock>
+					Введите срок
+				</TextBlock>
+				<DatePicker x:Name="DeadlineDatePicker" HorizontalAlignment="Right" Width="200" Height="auto" />
+			</Grid>
+		</StackPanel>
+		
 		<Button x:Name="AddButtom" Content="Добавить" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Margin="10" Click="AddButtom_Click"/>
 	</Grid>
 </Window>

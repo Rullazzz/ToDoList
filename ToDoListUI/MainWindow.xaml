@@ -28,6 +28,7 @@
 						<GridView>
 							<GridViewColumn DisplayMemberBinding="{Binding Path=TaskToComplete}" Width="200">Задача</GridViewColumn>
 							<GridViewColumn DisplayMemberBinding="{Binding Path=DateCreation}" Width="150">Дата создания</GridViewColumn>
+							<GridViewColumn DisplayMemberBinding="{Binding Path=Deadline}" Width="150">Срок</GridViewColumn>
 						</GridView>
 					</ListView.View>
 				</ListView>
