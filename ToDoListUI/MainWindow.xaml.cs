@@ -26,7 +26,7 @@ namespace ToDoListUI
 			var addWindow = new AddWindow();
 			addWindow.ShowDialog();
 
-			if (addWindow.Purpose.TaskToComplete != "")
+			if (addWindow.Purpose != null && addWindow.Purpose.TaskToComplete != "")
 				_purposes.Add(addWindow.Purpose);
 		}
 

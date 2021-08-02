@@ -5,37 +5,32 @@
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:ToDoListUI"
 		mc:Ignorable="d"
-		Title="MainWindow" Height="350" Width="600" Closing="Window_Closing">
-	
-	<Window.Resources>
-		<Style TargetType="Button">
-			<Setter Property="HorizontalAlignment" Value="Center" />
-			<Setter Property="Width" Value="60" />
-			<Setter Property="Height" Value="30" />
-			<Setter Property="Margin" Value="15" />
-		</Style>
+		Title="MainWindow" Height="350" Width="700" Closing="Window_Closing">
 
-		<Style TargetType="TextBlock">
-			<Setter Property="HorizontalAlignment" Value="Center" />
-		</Style>
-	</Window.Resources>
 	<Grid>
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="0.5*" />
+			<ColumnDefinition Width="0.3*" />
 			<ColumnDefinition />			
 		</Grid.ColumnDefinitions>
 
 		<Grid Background="#FFBDBCBC">
 			<StackPanel VerticalAlignment="Center">
-				<Button x:Name="AddPurposeButtom" Content="Добавить" Click="AddPurposeButtom_Click" />
-				<Button x:Name="DeletePurposeButton" Content="Удалить" Click="DeletePurposeButton_Click" />
+				<Button x:Name="AddPurposeButtom" Style="{StaticResource ButtonStyleDefault}" Content="Добавить" Click="AddPurposeButtom_Click" />
+				<Button x:Name="DeletePurposeButton" Style="{StaticResource ButtonStyleDefault}" Content="Удалить" Click="DeletePurposeButton_Click" />
 			</StackPanel>
 		</Grid>
 
 		<Grid Grid.Column="1">
 			<StackPanel>
-				<TextBlock Text="Задачи" />
-				<ListBox x:Name="ToDoList" Height="auto" Background="AntiqueWhite" />
+				<TextBlock Style="{StaticResource TextBlockStyle}" Text="Задачи" FontSize="20" FontWeight="Bold" Margin="0,0,0,5" />
+				<ListView x:Name="ToDoList" Height="auto">
+					<ListView.View>
+						<GridView>
+							<GridViewColumn DisplayMemberBinding="{Binding Path=TaskToComplete}" Width="200">Задача</GridViewColumn>
+							<GridViewColumn DisplayMemberBinding="{Binding Path=DateCreation}" Width="150">Дата создания</GridViewColumn>
+						</GridView>
+					</ListView.View>
+				</ListView>
 			</StackPanel>
 		</Grid>
 	</Grid>
