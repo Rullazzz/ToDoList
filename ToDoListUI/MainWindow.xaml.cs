@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using ToDoListBL;
@@ -61,12 +62,19 @@ namespace ToDoListUI
 
 		private void CompletePurposeButton_Click(object sender, RoutedEventArgs e)
 		{
-			//TODO: переписать.
-			var selectedPurpose = (Purpose)ToDoList.SelectedItem;
-			if (selectedPurpose != null)
+			var selectedPurposes = new List<Purpose>();
+			foreach (Purpose purpose in ToDoList.SelectedItems)
 			{
-				_purposes.Remove(selectedPurpose);
-				_completedPurposes.Add(selectedPurpose);
+				selectedPurposes.Add(purpose);
+			}
+
+			if (selectedPurposes.Count > 0)
+			{
+				foreach (var purpose in selectedPurposes)
+				{
+					_completedPurposes.Add(purpose);
+					_purposes.Remove(purpose);
+				}	
 				ToDoList.SelectedItem = _purposes.FirstOrDefault();
 			}
 		}
