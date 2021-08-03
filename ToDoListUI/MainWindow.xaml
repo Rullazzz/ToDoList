@@ -5,35 +5,87 @@
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:ToDoListUI"
 		mc:Ignorable="d"
-		Title="Список дел" Height="350" Width="700" Closing="Window_Closing">
+		Title="Список дел" Height="400" Width="700" Closing="Window_Closing">
 
-	<Grid>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="0.3*" />
-			<ColumnDefinition />
-		</Grid.ColumnDefinitions>
+	<TabControl>
+		<TabItem>
+			<TabItem.Header>
+				<StackPanel Orientation="Horizontal">
+					<Ellipse Height="10" Width="10" Fill="Aqua" />
+					<TextBlock Margin="3">Задачи</TextBlock>
+				</StackPanel>
+			</TabItem.Header>
+			<TabItem.Content>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="0.3*" />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
 
-		<Grid Background="#FF48C559">
-			<StackPanel VerticalAlignment="Center">
-				<Button x:Name="AddPurposeButtom" Style="{StaticResource ButtonStyleDefault}" Content="Добавить" Click="AddPurposeButtom_Click" />
-				<Button x:Name="DeletePurposeButton" Style="{StaticResource ButtonStyleDefault}" Content="Удалить" Click="DeletePurposeButton_Click" />
-				<Button x:Name="ChangePurposeButton" Style="{StaticResource ButtonStyleDefault}" Content="Изменить" Click="ChangePurposeButton_Click" />
-			</StackPanel>
-		</Grid>
+					<Grid Background="#FF48C559">
+						<StackPanel VerticalAlignment="Center">
+							<Button x:Name="AddPurposeButtom" Style="{StaticResource ButtonStyleDefault}" Content="Добавить" Click="AddPurposeButtom_Click" />
+							<Button x:Name="DeletePurposeButton" Style="{StaticResource ButtonStyleDefault}" Content="Удалить" Click="DeletePurposeButton_Click" />
+							<Button x:Name="ChangePurposeButton" Style="{StaticResource ButtonStyleDefault}" Content="Изменить" Click="ChangePurposeButton_Click" />
+						</StackPanel>
+						<Button Style="{StaticResource ButtonStyleDefault}" Width="auto" Background="IndianRed" VerticalAlignment="Bottom" Content="Очистить весь список!" />
+					</Grid>
 
-		<Grid Grid.Column="1">
-			<StackPanel>
-				<TextBlock Style="{StaticResource TextBlockStyle}" Text="Задачи" FontSize="20" FontWeight="Bold" Margin="0,0,0,5" />
-				<ListView x:Name="ToDoList" Height="auto">
-					<ListView.View>
-						<GridView>
-							<GridViewColumn DisplayMemberBinding="{Binding Path=TaskToComplete}" Width="200">Задача</GridViewColumn>
-							<GridViewColumn DisplayMemberBinding="{Binding Path=DateCreation}" Width="150">Дата создания</GridViewColumn>
-							<GridViewColumn DisplayMemberBinding="{Binding Path=Deadline}" Width="150">Срок</GridViewColumn>
-						</GridView>
-					</ListView.View>
-				</ListView>
-			</StackPanel>
-		</Grid>
-	</Grid>
+					<Grid Grid.Column="1">
+						<StackPanel>
+							<TextBlock Style="{StaticResource TextBlockStyle}" Text="Задачи" FontSize="20" FontWeight="Bold" Margin="0,0,0,5" />
+							<ListView x:Name="ToDoList" Height="auto">
+								<ListView.View>
+									<GridView>
+										<GridViewColumn DisplayMemberBinding="{Binding Path=TaskToComplete}" Width="200">Задача</GridViewColumn>
+										<GridViewColumn DisplayMemberBinding="{Binding Path=DateCreation}" Width="150">Дата создания</GridViewColumn>
+										<GridViewColumn DisplayMemberBinding="{Binding Path=Deadline}" Width="150">Срок</GridViewColumn>
+									</GridView>
+								</ListView.View>
+							</ListView>
+						</StackPanel>
+					</Grid>
+				</Grid>
+			</TabItem.Content>
+		</TabItem>
+		<TabItem>
+			<TabItem.Header>
+				<StackPanel Orientation="Horizontal">
+					<Ellipse Height="10" Width="10" Fill="Green" />
+					<TextBlock Margin="3">Завершенные</TextBlock>
+				</StackPanel>
+			</TabItem.Header>
+			<TabItem.Content>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="0.3*" />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+
+					<Grid Background="#FF48C559">
+						<StackPanel VerticalAlignment="Center">
+							<Button Style="{StaticResource ButtonStyleDefault}" Content="Восстановить" />
+							
+						</StackPanel>
+						<Button Style="{StaticResource ButtonStyleDefault}" Width="auto" Background="IndianRed" VerticalAlignment="Bottom" Content="Очистить весь список!" />
+					</Grid>
+
+					<Grid Grid.Column="1">
+						<StackPanel>
+							<TextBlock Style="{StaticResource TextBlockStyle}" Text="Завершенные задачи" FontSize="20" FontWeight="Bold" Margin="0,0,0,5" />
+							<ListView Height="auto">
+								<ListView.View>
+									<GridView>
+										<GridViewColumn DisplayMemberBinding="{Binding Path=TaskToComplete}" Width="200">Задача</GridViewColumn>
+										<GridViewColumn DisplayMemberBinding="{Binding Path=DateCreation}" Width="150">Дата создания</GridViewColumn>
+										<GridViewColumn DisplayMemberBinding="{Binding Path=Deadline}" Width="150">Срок</GridViewColumn>
+									</GridView>
+								</ListView.View>
+							</ListView>
+						</StackPanel>
+					</Grid>
+				</Grid>
+			</TabItem.Content>
+		</TabItem>
+	</TabControl>
 </Window>
