@@ -88,5 +88,23 @@ namespace ToDoListUI
 		{
 			_completedPurposes.Clear();
 		}
+
+		private void RestorePurposeButton_Click(object sender, RoutedEventArgs e)
+		{
+			var recoverablePurposes = new List<Purpose>();
+			foreach (Purpose purpose in CompletedPurposes.SelectedItems)
+			{
+				recoverablePurposes.Add(purpose);
+			}
+
+			if (recoverablePurposes.Count > 0)
+			{
+				foreach (var purpose in recoverablePurposes)
+				{
+					_purposes.Add(purpose);
+					_completedPurposes.Remove(purpose);
+				}
+			}
+		}
 	}
 }

@@ -64,8 +64,7 @@
 
 					<Grid Background="#FF48C559">
 						<StackPanel VerticalAlignment="Center">
-							<Button Style="{StaticResource ButtonStyleDefault}" Content="Восстановить" />
-							
+							<Button x:Name="RestorePurposeButton" Style="{StaticResource ButtonStyleDefault}" Content="Восстановить" Click="RestorePurposeButton_Click"	 />							
 						</StackPanel>
 						<Button x:Name="DeleteAllCompletedPurposesButton" Style="{StaticResource ButtonStyleDefault}" Width="auto" Background="IndianRed" VerticalAlignment="Bottom" Content="Очистить весь список!" Click="DeleteAllCompletedPurposesButton_Click" />
 					</Grid>
