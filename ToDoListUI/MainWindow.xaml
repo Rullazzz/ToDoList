@@ -10,10 +10,10 @@
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="0.3*" />
-			<ColumnDefinition />			
+			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
 
-		<Grid Background="#FFBDBCBC">
+		<Grid Background="#FF48C559">
 			<StackPanel VerticalAlignment="Center">
 				<Button x:Name="AddPurposeButtom" Style="{StaticResource ButtonStyleDefault}" Content="Добавить" Click="AddPurposeButtom_Click" />
 				<Button x:Name="DeletePurposeButton" Style="{StaticResource ButtonStyleDefault}" Content="Удалить" Click="DeletePurposeButton_Click" />
