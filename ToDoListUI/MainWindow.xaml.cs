@@ -38,9 +38,11 @@ namespace ToDoListUI
 		private void DeletePurposeButton_Click(object sender, RoutedEventArgs e)
 		{
 			var selectedPurpose = (Purpose)ToDoList.SelectedItem;
-			_purposes.Remove(selectedPurpose);
-
-			ToDoList.SelectedItem = _purposes.FirstOrDefault();
+			if (selectedPurpose != null)
+			{
+				_purposes.Remove(selectedPurpose);
+				ToDoList.SelectedItem = _purposes.FirstOrDefault();
+			}
 		}
 
 		private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -51,13 +53,16 @@ namespace ToDoListUI
 		private void ChangePurposeButton_Click(object sender, RoutedEventArgs e)
 		{
 			var selectedPurpose = (Purpose)ToDoList.SelectedItem;
-			var addWindow = new AddWindow(selectedPurpose);
-			addWindow.ShowDialog();
-
-			if (addWindow.Purpose != null && addWindow.Purpose.TaskToComplete != "")
+			if (selectedPurpose != null)
 			{
-				selectedPurpose.TaskToComplete = addWindow.Purpose.TaskToComplete;
-				selectedPurpose.Deadline = addWindow.Purpose.Deadline;
+				var addWindow = new AddWindow(selectedPurpose);
+				addWindow.ShowDialog();
+
+				if (addWindow.Purpose != null && addWindow.Purpose.TaskToComplete != "")
+				{
+					selectedPurpose.TaskToComplete = addWindow.Purpose.TaskToComplete;
+					selectedPurpose.Deadline = addWindow.Purpose.Deadline;
+				}
 			}
 		}
 	}
