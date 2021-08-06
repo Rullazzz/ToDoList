@@ -14,7 +14,7 @@ namespace ToDoListUI
 	{
 		private ObservableCollection<Purpose> _purposes;
 		private ObservableCollection<Purpose> _completedPurposes;
-		private SerializeDataSaver _dataSaver;
+		private IDataSaver _dataSaver;
 
 		public MainWindow()
 		{

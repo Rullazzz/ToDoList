@@ -14,7 +14,7 @@ namespace ToDoListBL.Model
         /// </summary>
         /// <param name="fileName"> Путь для сохранения данных. </param>
         /// <param name="item"> Объект сохранения. </param>
-        void Save<T>(ObservableCollection<T> item) where T : class;
+        void Save<T>(ObservableCollection<T> item, string _fileName) where T : class;
 
         /// <summary>
         /// Получить данные.
@@ -22,6 +22,6 @@ namespace ToDoListBL.Model
         /// <typeparam name="T"> Тип возвращаемых данных. </typeparam>
         /// <param name="fileName"> Путь для сохранения данных. </param>
         /// <returns> Данные из файла или Default(T). </returns>
-        ObservableCollection<T> Load<T>() where T : class;
+        ObservableCollection<T> Load<T>(string _fileName) where T : class;
     }
 }
